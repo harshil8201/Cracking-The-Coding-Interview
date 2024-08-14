@@ -1,38 +1,39 @@
 public class Partition {
 
-    class Node{
+    class ListNode{
         int data;
-        Node next = null;
+        ListNode next;
 
-        public Node(int data){
-            this.data=data;
+        public ListNode(int data) {
+            this.data = data;
+            this.next = null;
         }
     }
 
     public static void main(String[] args) {
         Partition list = new Partition();
 
-        Node head = list.new Node(3);
-        head.next = list.new Node(5);
-        head.next.next = list.new Node(8);
-        head.next.next.next = list.new Node(5);
-        head.next.next.next.next = list.new Node(10);
-        head.next.next.next.next.next = list.new Node(2);
-        head.next.next.next.next.next.next = list.new Node(1);
+        ListNode head = list.new ListNode(3);
+        head.next = list.new ListNode(5);
+        head.next.next = list.new ListNode(8);
+        head.next.next.next = list.new ListNode(5);
+        head.next.next.next.next = list.new ListNode(10);
+        head.next.next.next.next.next = list.new ListNode(2);
+        head.next.next.next.next.next.next = list.new ListNode(1);
 
-        Node headPartitionNode = list.partition(head, 5);
+        ListNode headPartitionNode = list.partition(head, 5);
         list.printList(headPartitionNode);
     }
     
     // Solution 1:
-    Node partition(Node node, int value) {
-        Node headNode = null;
-        Node tailNode = null;
-        Node head = null; // Track the new head
-        Node tail = null; // Track the new tail
+    ListNode partition(ListNode node, int value) {
+        ListNode headNode = null;
+        ListNode tailNode = null;
+        ListNode head = null; // Track the new head
+        ListNode tail = null; // Track the new tail
 
         while (node != null) {
-            Node next = node.next; // Save the next node
+            ListNode next = node.next; // Save the next node
             node.next = null; // Disconnect the current node from the rest of the list
 
             if (node.data < value) {
@@ -69,7 +70,7 @@ public class Partition {
         return head; // Return the new head
     }
 
-    void printList(Node head) {
+    void printList(ListNode head) {
         while (head != null) {
             System.out.print(head.data + " -> ");
             head = head.next;

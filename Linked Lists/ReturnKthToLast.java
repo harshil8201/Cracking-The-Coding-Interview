@@ -1,11 +1,12 @@
 public class ReturnKthToLast {
     
-    class Node {
+    class ListNode {
         int data;
-        Node next = null;
+        ListNode next;
 
-        public Node(int data) {
+        public ListNode(int data) {
             this.data = data;
+            this.next = null;
         }
     }
     public static void main(String[] args) {
@@ -13,11 +14,11 @@ public class ReturnKthToLast {
         ReturnKthToLast list = new ReturnKthToLast();
 
         // Create a linked list: 1 -> 2 -> 3 -> 4 -> 5
-        Node head = list.new Node(1);
-        head.next = list.new Node(2);
-        head.next.next = list.new Node(3);
-        head.next.next.next = list.new Node(4);
-        head.next.next.next.next = list.new Node(5);
+        ListNode head = list.new ListNode(1);
+        head.next = list.new ListNode(2);
+        head.next.next = list.new ListNode(3);
+        head.next.next.next = list.new ListNode(4);
+        head.next.next.next.next = list.new ListNode(5);
 
         int k = 2;
 
@@ -27,7 +28,7 @@ public class ReturnKthToLast {
 
         // Test the iterative solution
         System.out.println("\nIterative solution:");
-        Node kthNode = list.nthToLast(head, k);
+        ListNode kthNode = list.nthToLast(head, k);
         if (kthNode != null) {
             System.out.println(k + "th to last node is " + kthNode.data);
         } else {
@@ -36,7 +37,7 @@ public class ReturnKthToLast {
     }
 
     // Solution 1: Recursive
-    int printKthToLast(Node head, int k) {
+    int printKthToLast(ListNode head, int k) {
         if (head == null) return 0;
         
         int index = printKthToLast(head.next, k) + 1;
@@ -48,9 +49,9 @@ public class ReturnKthToLast {
 
     // SOlution 2: Iterative
     // time o(n) - sp: o(1)
-    Node nthToLast(Node head, int k) {
-        Node p1 = head;
-        Node p2 = head;
+    ListNode nthToLast(ListNode head, int k) {
+        ListNode p1 = head;
+        ListNode p2 = head;
 
         // Move p1 k nodes into the list
         for (int i = 0; i < k; i++) {
