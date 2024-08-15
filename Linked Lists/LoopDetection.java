@@ -25,6 +25,7 @@ public class LoopDetection {
         nodeD.next = nodeE;
         nodeE.next = nodeC;
 
+        // display node
         ListNode res = list.nodeLoopFound(head);
         if (res != null) {
             System.out.println(res.data);
