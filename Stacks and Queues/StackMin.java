@@ -71,7 +71,7 @@ public class StackMin {
 
 
     // Solution 2:
-    public class MinStack extends Stack<Integer> {
+        public class MinStack extends Stack<Integer> {
         Stack<Integer> st = new Stack<>();
 
         public MinStack() {
