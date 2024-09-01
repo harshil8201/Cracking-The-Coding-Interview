@@ -1,16 +1,3 @@
-class TreeNode {
-    int val;              // The value of the node
-    TreeNode left;        // Reference to the left child
-    TreeNode right;       // Reference to the right child
-    TreeNode parent;      // Reference to the parent node
-
-    TreeNode(int val) {
-        this.val = val;
-        this.left = null;
-        this.right = null;
-        this.parent = null;
-    }
-}
 
 public class FirstCommonAncestor {
     public static void main(String[] args) {
@@ -69,5 +56,19 @@ public class FirstCommonAncestor {
             depth++;
         }
         return depth;
+    }
+}
+
+class TreeNode {
+    int val;              // The value of the node
+    TreeNode left;        // Reference to the left child
+    TreeNode right;       // Reference to the right child
+    TreeNode parent;      // Reference to the parent node
+
+    TreeNode(int val) {
+        this.val = val;
+        this.left = null;
+        this.right = null;
+        this.parent = null;
     }
 }
